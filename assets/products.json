@@ -29,44 +29,324 @@
   },
   {
     "id": "5",
-    "name": "Smartphone",
-    "description": "High-end smartphone with 128GB storage.",
-    "price": 799.99,
+    "name": "Gaming Mouse",
+    "description": "Ergonomic gaming mouse with RGB lighting.",
+    "price": 39.99,
     "imageUrl": "https://picsum.photos/200/200?random=5.jpg"
   },
   {
     "id": "6",
-    "name": "Smartphone",
-    "description": "High-end smartphone with 128GB storage.",
-    "price": 799.99,
+    "name": "Laptop Stand",
+    "description": "Aluminum adjustable laptop stand for better ergonomics.",
+    "price": 29.99,
     "imageUrl": "https://picsum.photos/200/200?random=6.jpg"
   },
   {
     "id": "7",
-    "name": "Smartphone",
-    "description": "High-end smartphone with 128GB storage.",
-    "price": 799.99,
+    "name": "Mechanical Keyboard",
+    "description": "Backlit mechanical keyboard with tactile keys.",
+    "price": 89.99,
     "imageUrl": "https://picsum.photos/200/200?random=7.jpg"
   },
   {
     "id": "8",
-    "name": "Smartphone",
-    "description": "High-end smartphone with 128GB storage.",
-    "price": 799.99,
+    "name": "Webcam",
+    "description": "1080p HD webcam with built-in microphone.",
+    "price": 49.99,
     "imageUrl": "https://picsum.photos/200/200?random=8.jpg"
   },
   {
     "id": "9",
-    "name": "Smartphone",
-    "description": "High-end smartphone with 128GB storage.",
-    "price": 799.99,
+    "name": "External Hard Drive",
+    "description": "1TB USB 3.0 external hard drive for backups.",
+    "price": 69.99,
     "imageUrl": "https://picsum.photos/200/200?random=9.jpg"
   },
   {
     "id": "10",
-    "name": "Smartphone",
-    "description": "High-end smartphone with 128GB storage.",
-    "price": 799.99,
+    "name": "Noise Cancelling Earbuds",
+    "description": "Compact earbuds with active noise cancellation.",
+    "price": 89.99,
     "imageUrl": "https://picsum.photos/200/200?random=10.jpg"
+  },
+  {
+    "id": "11",
+    "name": "Fitness Tracker",
+    "description": "Track your steps, calories, and sleep patterns.",
+    "price": 59.99,
+    "imageUrl": "https://picsum.photos/200/200?random=11.jpg"
+  },
+  {
+    "id": "12",
+    "name": "Smart Light Bulb",
+    "description": "Color changing smart LED bulb with voice control.",
+    "price": 24.99,
+    "imageUrl": "https://picsum.photos/200/200?random=12.jpg"
+  },
+  {
+    "id": "13",
+    "name": "Wireless Charger",
+    "description": "Fast wireless charger compatible with all Qi devices.",
+    "price": 19.99,
+    "imageUrl": "https://picsum.photos/200/200?random=13.jpg"
+  },
+  {
+    "id": "14",
+    "name": "Tablet",
+    "description": "10-inch tablet with 64GB storage and long battery life.",
+    "price": 199.99,
+    "imageUrl": "https://picsum.photos/200/200?random=14.jpg"
+  },
+  {
+    "id": "15",
+    "name": "Drone",
+    "description": "Quadcopter drone with HD camera and GPS.",
+    "price": 299.99,
+    "imageUrl": "https://picsum.photos/200/200?random=15.jpg"
+  },
+  {
+    "id": "16",
+    "name": "Action Camera",
+    "description": "Waterproof action camera with 4K recording.",
+    "price": 119.99,
+    "imageUrl": "https://picsum.photos/200/200?random=16.jpg"
+  },
+  {
+    "id": "17",
+    "name": "Bluetooth Tracker",
+    "description": "Track your keys or wallet with this tiny tracker.",
+    "price": 14.99,
+    "imageUrl": "https://picsum.photos/200/200?random=17.jpg"
+  },
+  {
+    "id": "18",
+    "name": "USB-C Hub",
+    "description": "Multiport USB-C hub with HDMI and USB 3.0 ports.",
+    "price": 34.99,
+    "imageUrl": "https://picsum.photos/200/200?random=18.jpg"
+  },
+  {
+    "id": "19",
+    "name": "Wireless Keyboard",
+    "description": "Slim wireless keyboard with long battery life.",
+    "price": 29.99,
+    "imageUrl": "https://picsum.photos/200/200?random=19.jpg"
+  },
+  {
+    "id": "20",
+    "name": "Power Bank",
+    "description": "10000mAh portable power bank with fast charging.",
+    "price": 25.99,
+    "imageUrl": "https://picsum.photos/200/200?random=20.jpg"
+  },
+  {
+    "id": "21",
+    "name": "VR Headset",
+    "description": "Immersive virtual reality headset for gaming.",
+    "price": 249.99,
+    "imageUrl": "https://picsum.photos/200/200?random=21.jpg"
+  },
+  {
+    "id": "22",
+    "name": "Laptop",
+    "description": "15-inch laptop with Intel i7 processor and 16GB RAM.",
+    "price": 999.99,
+    "imageUrl": "https://picsum.photos/200/200?random=22.jpg"
+  },
+  {
+    "id": "23",
+    "name": "Digital Photo Frame",
+    "description": "WiFi-enabled digital frame for family photos.",
+    "price": 89.99,
+    "imageUrl": "https://picsum.photos/200/200?random=23.jpg"
+  },
+  {
+    "id": "24",
+    "name": "Electric Toothbrush",
+    "description": "Rechargeable toothbrush with smart timer.",
+    "price": 39.99,
+    "imageUrl": "https://picsum.photos/200/200?random=24.jpg"
+  },
+  {
+    "id": "25",
+    "name": "Smart Plug",
+    "description": "WiFi smart plug compatible with Alexa and Google.",
+    "price": 14.99,
+    "imageUrl": "https://picsum.photos/200/200?random=25.jpg"
+  },
+  {
+    "id": "26",
+    "name": "Streaming Stick",
+    "description": "Stream your favorite shows in 4K resolution.",
+    "price": 49.99,
+    "imageUrl": "https://picsum.photos/200/200?random=26.jpg"
+  },
+  {
+    "id": "27",
+    "name": "Portable Monitor",
+    "description": "Lightweight portable monitor with USB-C support.",
+    "price": 179.99,
+    "imageUrl": "https://picsum.photos/200/200?random=27.jpg"
+  },
+  {
+    "id": "28",
+    "name": "Photo Printer",
+    "description": "Compact photo printer with wireless printing.",
+    "price": 99.99,
+    "imageUrl": "https://picsum.photos/200/200?random=28.jpg"
+  },
+  {
+    "id": "29",
+    "name": "Wireless Earbuds",
+    "description": "Noise-isolating wireless earbuds with charging case.",
+    "price": 69.99,
+    "imageUrl": "https://picsum.photos/200/200?random=29.jpg"
+  },
+  {
+    "id": "30",
+    "name": "Smart Thermostat",
+    "description": "Programmable thermostat with remote access.",
+    "price": 149.99,
+    "imageUrl": "https://picsum.photos/200/200?random=30.jpg"
+  },
+  {
+    "id": "31",
+    "name": "Home Security Camera",
+    "description": "Indoor camera with motion detection and cloud storage.",
+    "price": 59.99,
+    "imageUrl": "https://picsum.photos/200/200?random=31.jpg"
+  },
+  {
+    "id": "32",
+    "name": "Coffee Maker",
+    "description": "Single-serve coffee maker with reusable filter.",
+    "price": 49.99,
+    "imageUrl": "https://picsum.photos/200/200?random=32.jpg"
+  },
+  {
+    "id": "33",
+    "name": "Smart Scale",
+    "description": "Body weight scale with Bluetooth and app support.",
+    "price": 29.99,
+    "imageUrl": "https://picsum.photos/200/200?random=33.jpg"
+  },
+  {
+    "id": "34",
+    "name": "Portable Projector",
+    "description": "Mini projector with HDMI and built-in speaker.",
+    "price": 119.99,
+    "imageUrl": "https://picsum.photos/200/200?random=34.jpg"
+  },
+  {
+    "id": "35",
+    "name": "LED Desk Lamp",
+    "description": "Dimmable LED desk lamp with USB charging port.",
+    "price": 34.99,
+    "imageUrl": "https://picsum.photos/200/200?random=35.jpg"
+  },
+  {
+    "id": "36",
+    "name": "Smart Doorbell",
+    "description": "Video doorbell with two-way audio and motion alerts.",
+    "price": 89.99,
+    "imageUrl": "https://picsum.photos/200/200?random=36.jpg"
+  },
+  {
+    "id": "37",
+    "name": "Standing Desk",
+    "description": "Adjustable height standing desk converter.",
+    "price": 199.99,
+    "imageUrl": "https://picsum.photos/200/200?random=37.jpg"
+  },
+  {
+    "id": "38",
+    "name": "Car Dash Cam",
+    "description": "HD dash cam with loop recording and night vision.",
+    "price": 74.99,
+    "imageUrl": "https://picsum.photos/200/200?random=38.jpg"
+  },
+  {
+    "id": "39",
+    "name": "Smart Alarm Clock",
+    "description": "Alarm clock with sunrise simulation and app control.",
+    "price": 49.99,
+    "imageUrl": "https://picsum.photos/200/200?random=39.jpg"
+  },
+  {
+    "id": "40",
+    "name": "Electric Kettle",
+    "description": "1.7L fast boiling electric kettle with auto shut-off.",
+    "price": 29.99,
+    "imageUrl": "https://picsum.photos/200/200?random=40.jpg"
+  },
+  {
+    "id": "41",
+    "name": "Noise Machine",
+    "description": "White noise machine for better sleep and focus.",
+    "price": 34.99,
+    "imageUrl": "https://picsum.photos/200/200?random=41.jpg"
+  },
+  {
+    "id": "42",
+    "name": "Smart Lock",
+    "description": "Keyless entry smart lock with app control.",
+    "price": 139.99,
+    "imageUrl": "https://picsum.photos/200/200?random=42.jpg"
+  },
+  {
+    "id": "43",
+    "name": "Wireless Router",
+    "description": "Dual-band Wi-Fi router with parental controls.",
+    "price": 89.99,
+    "imageUrl": "https://picsum.photos/200/200?random=43.jpg"
+  },
+  {
+    "id": "44",
+    "name": "Soundbar",
+    "description": "Compact soundbar with Bluetooth and deep bass.",
+    "price": 129.99,
+    "imageUrl": "https://picsum.photos/200/200?random=44.jpg"
+  },
+  {
+    "id": "45",
+    "name": "Electric Scooter",
+    "description": "Foldable electric scooter with 25km range.",
+    "price": 499.99,
+    "imageUrl": "https://picsum.photos/200/200?random=45.jpg"
+  },
+  {
+    "id": "46",
+    "name": "Air Purifier",
+    "description": "HEPA air purifier for rooms up to 300 sq ft.",
+    "price": 109.99,
+    "imageUrl": "https://picsum.photos/200/200?random=46.jpg"
+  },
+  {
+    "id": "47",
+    "name": "Streaming Microphone",
+    "description": "USB condenser mic for podcasting and streaming.",
+    "price": 79.99,
+    "imageUrl": "https://picsum.photos/200/200?random=47.jpg"
+  },
+  {
+    "id": "48",
+    "name": "Robot Vacuum",
+    "description": "Smart robotic vacuum with self-charging dock.",
+    "price": 229.99,
+    "imageUrl": "https://picsum.photos/200/200?random=48.jpg"
+  },
+  {
+    "id": "49",
+    "name": "Digital Notepad",
+    "description": "E-ink tablet for writing and drawing notes.",
+    "price": 199.99,
+    "imageUrl": "https://picsum.photos/200/200?random=49.jpg"
+  },
+  {
+    "id": "50",
+    "name": "Portable Air Compressor",
+    "description": "Cordless air compressor for car and bike tires.",
+    "price": 59.99,
+    "imageUrl": "https://picsum.photos/200/200?random=50.jpg"
   }
-] 
+]

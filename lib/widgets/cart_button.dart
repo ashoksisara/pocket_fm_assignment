@@ -8,12 +8,13 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CartProvider>(
-      builder: (context, cart, child) {
+    return Selector<CartProvider, int>(
+      selector: (context, cart) => cart.itemCount,
+      builder: (context, itemCount, child) {
         // Cart button
         return IconButton(
           icon: Badge(
-            label: Text(cart.itemCount.toString()),
+            label: Text(itemCount.toString()),
             child: const Icon(Icons.shopping_cart),
           ),
           onPressed: () => Navigator.pushNamed(context, AppRoutes.cart),

@@ -5,45 +5,26 @@ import 'package:provider/provider.dart';
 
 import '../../../providers/cart_provider.dart';
 import 'widgets/cart_item_widget.dart';
+import 'widgets/cart_total.dart';
+import 'widgets/empty_cart.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-
     return Scaffold(
       appBar: AppBar(title: const Text('Cart')),
       body: Consumer<CartProvider>(
         builder: (context, cartProvider, child) {
           // No items in cart
           if (cartProvider.items.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.shopping_cart_outlined,
-                    size: ThemeConstant.largeIconSize,
-                    color: colorScheme.onSurfaceVariant,
-                  ),
-                  const SizedBox(height: ThemeConstant.largeSpacing),
-                  Text(
-                    'Your cart is empty',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
-            );
+            return const EmptyCartView();
           }
 
-          // Cart items
           return Column(
             children: [
+              // Cart items
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.all(ThemeConstant.defaultPadding),
@@ -52,7 +33,7 @@ class CartScreen extends StatelessWidget {
                     final item = cartProvider.items[index];
                     return CartItemWidget(
                       item: item,
-                      cartProvider: cartProvider,
+                      cartProvider: context.read<CartProvider>(),
                       onRemove: () =>
                           _showRemoveDialog(context, cartProvider, item),
                     );
@@ -62,38 +43,8 @@ class CartScreen extends StatelessWidget {
                   addRepaintBoundaries: true,
                 ),
               ),
-              // Total price
-              Container(
-                padding: const EdgeInsets.all(ThemeConstant.defaultPadding),
-                decoration: BoxDecoration(
-                  color: colorScheme.surface,
-                  border: Border(
-                    top: BorderSide(
-                      color: colorScheme.outline,
-                      width: ThemeConstant.borderWidth,
-                    ),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Total:',
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: colorScheme.onSurface,
-                      ),
-                    ),
-                    Text(
-                      '\$${cartProvider.totalPrice.toStringAsFixed(2)}',
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: colorScheme.primary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Cart total
+              const CartTotal(),
             ],
           );
         },
@@ -101,6 +52,7 @@ class CartScreen extends StatelessWidget {
     );
   }
 
+  // Show remove dialog
   void _showRemoveDialog(
     BuildContext context,
     CartProvider cartProvider,

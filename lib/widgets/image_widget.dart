@@ -24,15 +24,14 @@ class ImageWidget extends StatelessWidget {
       height: height,
       fit: BoxFit.cover,
       placeholder: (context, url) => const Loader(),
-      errorWidget:
-          (context, url, error) => Container(
-            color: colorScheme.errorContainer,
-            child: Icon(
-              Icons.broken_image,
-              color: colorScheme.onErrorContainer,
-              size: 64,
-            ),
-          ),
+      errorWidget: (context, url, error) => Container(
+        color: colorScheme.errorContainer,
+        child: Icon(
+          Icons.broken_image,
+          color: colorScheme.onErrorContainer,
+          size: 64,
+        ),
+      ),
       memCacheWidth: 400,
       memCacheHeight: 300,
       maxWidthDiskCache: 400,

@@ -58,7 +58,7 @@ class ProductCard extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: colorScheme.onSurface,
                           ),
-                          maxLines: 1,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -81,6 +81,7 @@ class ProductCard extends StatelessWidget {
     );
   }
 
+  // Navigate to product details
   void _navigateToDetails(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.productDetails, arguments: product);
   }
