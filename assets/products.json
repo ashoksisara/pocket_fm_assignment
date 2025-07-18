@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "name": "Wireless Headphones",
+    "description": "High quality wireless headphones with noise cancellation.",
+    "price": 99.99,
+    "imageUrl": "https://picsum.photos/200/200?random=1.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Smart Watch",
+    "description": "Water-resistant smart watch with fitness tracking.",
+    "price": 149.99,
+    "imageUrl": "https://picsum.photos/200/200?random=2.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker with deep bass.",
+    "price": 59.99,
+    "imageUrl": "https://picsum.photos/200/200?random=3.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Smartphone",
+    "description": "High-end smartphone with 128GB storage.",
+    "price": 799.99,
+    "imageUrl": "https://picsum.photos/200/200?random=4.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Smartphone",
+    "description": "High-end smartphone with 128GB storage.",
+    "price": 799.99,
+    "imageUrl": "https://picsum.photos/200/200?random=5.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Smartphone",
+    "description": "High-end smartphone with 128GB storage.",
+    "price": 799.99,
+    "imageUrl": "https://picsum.photos/200/200?random=6.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Smartphone",
+    "description": "High-end smartphone with 128GB storage.",
+    "price": 799.99,
+    "imageUrl": "https://picsum.photos/200/200?random=7.jpg"
+  },
+  {
+    "id": "8",
+    "name": "Smartphone",
+    "description": "High-end smartphone with 128GB storage.",
+    "price": 799.99,
+    "imageUrl": "https://picsum.photos/200/200?random=8.jpg"
+  },
+  {
+    "id": "9",
+    "name": "Smartphone",
+    "description": "High-end smartphone with 128GB storage.",
+    "price": 799.99,
+    "imageUrl": "https://picsum.photos/200/200?random=9.jpg"
+  },
+  {
+    "id": "10",
+    "name": "Smartphone",
+    "description": "High-end smartphone with 128GB storage.",
+    "price": 799.99,
+    "imageUrl": "https://picsum.photos/200/200?random=10.jpg"
+  }
+] 
