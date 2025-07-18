@@ -17,6 +17,11 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Cart')),
       body: Consumer<CartProvider>(
         builder: (context, cartProvider, child) {
+          // Show loading indicator while loading from storage
+          if (cartProvider.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
           // No items in cart
           if (cartProvider.items.isEmpty) {
             return const EmptyCartView();

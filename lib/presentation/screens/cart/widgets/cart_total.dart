@@ -10,41 +10,44 @@ class CartTotal extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final cartProvider = context.read<CartProvider>();
-    final totalPrice = cartProvider.totalPrice;
 
-    return Container(
-      padding: const EdgeInsets.all(ThemeConstant.defaultPadding),
-      decoration: BoxDecoration(
-        color: colorScheme.surface,
-        border: Border(
-          top: BorderSide(
-            color: colorScheme.outline,
-            width: ThemeConstant.borderWidth,
-          ),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Total text
-          Text(
-            'Total:',
-            style: theme.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: colorScheme.onSurface,
+    return Selector<CartProvider, double>(
+      selector: (context, cart) => cart.totalPrice,
+      builder: (context, totalPrice, child) {
+        return Container(
+          padding: const EdgeInsets.all(ThemeConstant.defaultPadding),
+          decoration: BoxDecoration(
+            color: colorScheme.surface,
+            border: Border(
+              top: BorderSide(
+                color: colorScheme.outline,
+                width: ThemeConstant.borderWidth,
+              ),
             ),
           ),
-          // Total price
-          Text(
-            '\$${totalPrice.toStringAsFixed(2)}',
-            style: theme.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: colorScheme.primary,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Total text
+              Text(
+                'Total:',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: colorScheme.onSurface,
+                ),
+              ),
+              // Total price
+              Text(
+                '\$${totalPrice.toStringAsFixed(2)}',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: colorScheme.primary,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

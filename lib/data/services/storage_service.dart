@@ -1,0 +1,188 @@
+import 'dart:convert';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+import '../models/cart_item.dart';
+import '../../core/constants/app_constants.dart';
+
+class StorageService {
+  static Database? _database;
+  static const String _tableName = AppConstants.cartTableName;
+
+  // Get database instance
+  static Future<Database> get database async {
+    if (_database != null) return _database!;
+    _database = await _initDatabase();
+    return _database!;
+  }
+
+  // Initialize database
+  static Future<Database> _initDatabase() async {
+    final databasePath = await getDatabasesPath();
+    final path = join(databasePath, AppConstants.databaseName);
+
+    return await openDatabase(
+      path,
+      version: AppConstants.databaseVersion,
+      onCreate: _createDatabase,
+    );
+  }
+
+  // Create database tables
+  static Future<void> _createDatabase(Database db, int version) async {
+    await db.execute('''
+      CREATE TABLE $_tableName (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        product_id TEXT NOT NULL,
+        cart_data TEXT NOT NULL,
+        created_at INTEGER NOT NULL,
+        updated_at INTEGER NOT NULL
+      )
+    ''');
+  }
+
+  // Save cart items to database
+  static Future<void> saveCartItems(List<CartItem> items) async {
+    try {
+      final db = await database;
+
+      // Clear existing cart items
+      await db.delete(_tableName);
+
+      // Insert new cart items
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      for (final item in items) {
+        await db.insert(_tableName, {
+          'product_id': item.product.id,
+          'cart_data': jsonEncode(item.toJson()),
+          'created_at': timestamp,
+          'updated_at': timestamp,
+        });
+      }
+    } catch (e) {
+      // Handle error silently to not affect UI
+      print('Error saving cart items: $e');
+    }
+  }
+
+  // Load cart items from database
+  static Future<List<CartItem>> loadCartItems() async {
+    try {
+      final db = await database;
+      final List<Map<String, dynamic>> maps = await db.query(_tableName);
+
+      return maps.map((map) {
+        final cartData = jsonDecode(map['cart_data']);
+        return CartItem.fromJson(cartData);
+      }).toList();
+    } catch (e) {
+      // Handle error silently and return empty list
+      print('Error loading cart items: $e');
+      return [];
+    }
+  }
+
+  // Clear all cart items
+  static Future<void> clearCart() async {
+    try {
+      final db = await database;
+      await db.delete(_tableName);
+    } catch (e) {
+      // Handle error silently
+      print('Error clearing cart: $e');
+    }
+  }
+
+  // Get cart items count
+  static Future<int> getCartItemCount() async {
+    try {
+      final db = await database;
+      final count = Sqflite.firstIntValue(
+        await db.rawQuery('SELECT COUNT(*) FROM $_tableName'),
+      );
+      return count ?? 0;
+    } catch (e) {
+      // Handle error silently
+      print('Error getting cart count: $e');
+      return 0;
+    }
+  }
+
+  // Update specific cart item
+  static Future<void> updateCartItem(CartItem item) async {
+    try {
+      final db = await database;
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+
+      await db.update(
+        _tableName,
+        {'cart_data': jsonEncode(item.toJson()), 'updated_at': timestamp},
+        where: 'product_id = ?',
+        whereArgs: [item.product.id],
+      );
+    } catch (e) {
+      // Handle error silently
+      print('Error updating cart item: $e');
+    }
+  }
+
+  // Remove specific cart item
+  static Future<void> removeCartItem(String productId) async {
+    try {
+      final db = await database;
+      await db.delete(
+        _tableName,
+        where: 'product_id = ?',
+        whereArgs: [productId],
+      );
+    } catch (e) {
+      // Handle error silently
+      print('Error removing cart item: $e');
+    }
+  }
+
+  // Check if cart item exists
+  static Future<bool> cartItemExists(String productId) async {
+    try {
+      final db = await database;
+      final count = Sqflite.firstIntValue(
+        await db.rawQuery(
+          'SELECT COUNT(*) FROM $_tableName WHERE product_id = ?',
+          [productId],
+        ),
+      );
+      return (count ?? 0) > 0;
+    } catch (e) {
+      print('Error checking cart item existence: $e');
+      return false;
+    }
+  }
+
+  // Get cart item by product ID
+  static Future<CartItem?> getCartItem(String productId) async {
+    try {
+      final db = await database;
+      final List<Map<String, dynamic>> maps = await db.query(
+        _tableName,
+        where: 'product_id = ?',
+        whereArgs: [productId],
+      );
+
+      if (maps.isNotEmpty) {
+        final cartData = jsonDecode(maps.first['cart_data']);
+        return CartItem.fromJson(cartData);
+      }
+      return null;
+    } catch (e) {
+      print('Error getting cart item: $e');
+      return null;
+    }
+  }
+
+  // Close database connection
+  static Future<void> closeDatabase() async {
+    if (_database != null) {
+      await _database!.close();
+      _database = null;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_fm_assignment/data/models/product.dart';
+import '../core/constants/app_constants.dart';
 import '../data/services/json_service.dart';
 
 class ProductProvider extends ChangeNotifier {
@@ -29,7 +30,7 @@ class ProductProvider extends ChangeNotifier {
 
     try {
       final List<dynamic> data = await JsonService.loadJsonData(
-        'assets/products.json',
+        AppConstants.productsJsonPath,
       );
       _allProducts = data.map((json) => Product.fromJson(json)).toList();
       _loadPage();
