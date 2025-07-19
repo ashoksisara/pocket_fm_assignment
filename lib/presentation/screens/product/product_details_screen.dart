@@ -15,6 +15,7 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    const borderRadius = ThemeConstant.cardBorderRadius;
 
     return Scaffold(
       appBar: AppBar(title: Text(product.name), actions: const [CartButton()]),
@@ -25,18 +26,74 @@ class ProductDetailsScreen extends StatelessWidget {
           spacing: ThemeConstant.largeSpacing,
           children: [
             // Product image
-            _ProductImage(product: product),
+            Container(
+              height: 250,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: borderRadius,
+                color: colorScheme.surface,
+              ),
+              child: Hero(
+                tag: 'product-${product.id}',
+                child: ClipRRect(
+                  borderRadius: borderRadius,
+                  child: ImageWidget(imageUrl: product.imageUrl),
+                ),
+              ),
+            ),
             // Product name
             const SizedBox(height: 10),
-            _ProductName(product: product),
+            Text(
+              product.name,
+              style: theme.textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: colorScheme.onSurface,
+              ),
+            ),
             // Product description
-            _ProductDescription(product: product),
+            Text(
+              product.description,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+              ),
+            ),
             // Product price
             const SizedBox(height: 10),
-            _ProductPrice(product: product),
+            Container(
+              padding: const EdgeInsets.all(ThemeConstant.defaultPadding),
+              decoration: BoxDecoration(
+                color: colorScheme.primaryContainer,
+                borderRadius: borderRadius,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Price:',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      color: colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                  Text(
+                    '\$${product.price.toStringAsFixed(2)}',
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: colorScheme.primary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             // Add to cart button
             const Spacer(),
-            _AddToCartButton(onPressed: () => _addToCart(context, colorScheme)),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () => _addToCart(context, colorScheme),
+                child: const Text('Add to Cart'),
+              ),
+            ),
+            const SizedBox(height: 10),
           ],
         ),
       ),
@@ -51,131 +108,6 @@ class ProductDetailsScreen extends StatelessWidget {
         content: const Text('Added to cart!'),
         backgroundColor: colorScheme.primary,
         duration: const Duration(milliseconds: 600),
-      ),
-    );
-  }
-}
-
-class _ProductImage extends StatelessWidget {
-  final Product product;
-
-  const _ProductImage({required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    const borderRadius = ThemeConstant.cardBorderRadius;
-
-    return Center(
-      child: Container(
-        height: 250,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: borderRadius,
-          color: colorScheme.surface,
-        ),
-        child: Hero(
-          tag: 'product-${product.id}',
-          child: ClipRRect(
-            borderRadius: borderRadius,
-            child: ImageWidget(imageUrl: product.imageUrl),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ProductName extends StatelessWidget {
-  final Product product;
-
-  const _ProductName({required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-
-    return Text(
-      product.name,
-      style: theme.textTheme.headlineSmall?.copyWith(
-        fontWeight: FontWeight.bold,
-        color: colorScheme.onSurface,
-      ),
-    );
-  }
-}
-
-class _ProductDescription extends StatelessWidget {
-  final Product product;
-
-  const _ProductDescription({required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-
-    return Text(
-      product.description,
-      style: theme.textTheme.bodyLarge?.copyWith(
-        color: colorScheme.onSurfaceVariant,
-      ),
-    );
-  }
-}
-
-class _ProductPrice extends StatelessWidget {
-  final Product product;
-
-  const _ProductPrice({required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-    const borderRadius = ThemeConstant.cardBorderRadius;
-
-    return Container(
-      padding: const EdgeInsets.all(ThemeConstant.defaultPadding),
-      decoration: BoxDecoration(
-        color: colorScheme.primaryContainer,
-        borderRadius: borderRadius,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Price:',
-            style: theme.textTheme.titleMedium?.copyWith(
-              color: colorScheme.onPrimaryContainer,
-            ),
-          ),
-          Text(
-            '\$${product.price.toStringAsFixed(2)}',
-            style: theme.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: colorScheme.primary,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _AddToCartButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const _AddToCartButton({required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        child: const Text('Add to Cart'),
       ),
     );
   }

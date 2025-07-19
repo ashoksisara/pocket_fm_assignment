@@ -101,7 +101,7 @@ class _ProductGrid extends StatelessWidget {
               (productProvider.hasMoreData ? 1 : 0),
           itemBuilder: (context, index) {
             if (index == productProvider.products.length) {
-              return const _LoadingIndicator();
+              return const Loader();
             }
 
             return ProductCard(
@@ -115,20 +115,6 @@ class _ProductGrid extends StatelessWidget {
           addSemanticIndexes: false,
         );
       },
-    );
-  }
-}
-
-class _LoadingIndicator extends StatelessWidget {
-  const _LoadingIndicator();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Padding(
-        padding: EdgeInsets.all(ThemeConstant.defaultPadding),
-        child: CircularProgressIndicator(),
-      ),
     );
   }
 }
